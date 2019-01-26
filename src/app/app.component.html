@@ -1,1 +1,7 @@
 <router-outlet></router-outlet>
+<div [hidden]="!spinner.getLoading()">
+    <div class="loader-bg"></div>
+    <div align="center" class="loader">
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>

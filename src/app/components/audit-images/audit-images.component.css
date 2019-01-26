@@ -1,0 +1,43 @@
+.audit-table th,
+.audit-table td {
+    width: 5%;
+}
+
+.text-align-center,
+.audit-table th {
+    text-align: center;
+}
+
+.camel-case {
+    text-transform: capitalize;
+}
+
+.image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.photo-direction-text {
+    opacity: 0;
+}
+
+.image-boxes:hover .photo-direction-text {
+    opacity: 1;
+    font-size: 0.9em;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.image-boxes:hover img {
+    -webkit-filter: brightness(50%);
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+button:focus{
+	background-color: transparent !important;
+}
