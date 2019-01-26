@@ -9,7 +9,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'ngx-moment';
-import { MatTableModule, MatTooltipModule, MatGridListModule, MatSortModule, MatProgressSpinnerModule} from '@angular/material';
+import { MatTableModule, MatTooltipModule, MatGridListModule,
+  MatSortModule, MatProgressSpinnerModule, MatDialogModule,
+  MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 /* App modules */
@@ -19,18 +21,25 @@ import { AppComponent } from './app.component';
 import { AuditImagesComponent } from './components/audit-images/audit-images.component';
 import { LoginComponent } from './components/login/login.component';
 import { UrlConfigService } from './common/urlConfig.service';
+import { AuditImagesActionComponent } from './components/audit-images/audit-images-action/audit-images-action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuditImagesComponent,
-    LoginComponent
+    LoginComponent,
+    AuditImagesActionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-    ToastrModule,
+    ToastrModule.forRoot({
+      progressBar: true,
+      timeOut: 3*1000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
     MomentModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -39,8 +48,14 @@ import { UrlConfigService } from './common/urlConfig.service';
     MatGridListModule,
     LazyLoadImageModule,
     MatSortModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatSelectModule
   ],
+  entryComponents: [AuditImagesActionComponent], 
   providers: [SpinnerService,
   UrlConfigService, 
   HttpClient],

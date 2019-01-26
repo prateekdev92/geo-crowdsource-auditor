@@ -32,6 +32,10 @@ body {
     margin-top: 5px;
 }
 
+.space-left-med{
+	margin-left: 12px;
+}
+
 .no-margin {
     margin: 0px;
 }
@@ -56,6 +60,33 @@ body {
     font-size: 1.02em !important;
     padding: 5px;
     cursor: pointer;
+}
+
+/* Button */
+
+.cust-button{
+	background-color: #fff;
+	color:#2996f3;
+	border:1px solid #2996f3;
+	width:60%;
+}
+
+.cursor{
+	cursor: pointer;
+}
+
+.mat-dialog-container{
+	padding-right: 10px !important;
+	padding-left: 0px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+#toast-container {
+  top: auto !important;
+  left: auto !important;
+  bottom: 20% !important;
+  right: 0% !important;  
 }
 
 /* Colors */

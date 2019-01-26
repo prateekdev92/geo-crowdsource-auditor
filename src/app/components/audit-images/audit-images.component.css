@@ -23,6 +23,18 @@
     opacity: 0;
 }
 
+.image-boxes{
+	position: relative;
+	text-align: center;
+	margin-right:5px;
+}
+
+.photo-direction-text{
+	position: absolute;
+	top:25%;
+	left:25%;
+}
+
 .image-boxes:hover .photo-direction-text {
     opacity: 1;
     font-size: 0.9em;

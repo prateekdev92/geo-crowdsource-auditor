@@ -11,12 +11,19 @@ export class AuditImagesService {
 
   constructor(private urlConfig: UrlConfigService, private http: HttpClient) { }
 
-  getImages(): Observable<any> {
+  	getImages(): Observable<any> {
 
 	var url = this.urlConfig.auditImages().get_images;
 
 	 return this.http.get(url).pipe(
 	     map(this.extractData));
+	}
+
+	submitFeedback(params): Observable<any> {
+
+		var url = this.urlConfig.auditImages().postFeedback;
+		return this.http.post(url, params,  {observe: 'response', responseType: 'blob'});
+
 	}
 
 	private extractData(res: Response) {
