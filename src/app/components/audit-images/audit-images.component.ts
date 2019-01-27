@@ -23,6 +23,7 @@ export class AuditImagesComponent implements OnInit {
   	public clicked = false;
   	public loadImageViewer = false;
   	public showImage = false;
+  	public totalCount;
   	
 
   	displayedColumns: string[] = ['id', 'location'  ,'timestamp', 'landobservations', 'photos', 'action'];
@@ -36,6 +37,8 @@ export class AuditImagesComponent implements OnInit {
 	    this.auditSrvc.getImages().subscribe((data:any = {}) => {
 	      
 	      this.listing = new MatTableDataSource(data);
+
+	      this.totalCount = this.listing.data.length;
 
 	      this.listing.sort = this.sort;
 
@@ -51,7 +54,6 @@ export class AuditImagesComponent implements OnInit {
 
 	    const dialogRef = this.dialog.open(AuditImagesActionComponent, {
 	      width: '800px',
-	      height: '266px',
 	      data: i
 	    });
 
@@ -71,7 +73,10 @@ export class AuditImagesComponent implements OnInit {
   	}
 
   	sendCount() {
-  		this.getPendingCount.emit(this.listing.data.length);
+  		let obj:any = {};
+  		obj.total = this.totalCount; 
+  		obj.current = this.listing.data.length;
+  		this.getPendingCount.emit(obj);
   	}
 
 	ngOnInit() {

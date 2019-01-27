@@ -1,11 +1,7 @@
 body {
     margin: 0px;
-    font-family: 'Open Sans'
-}
-
-html,
-body {
     height: 100%;
+    font-family: 'Open Sans'
 }
 
 .centered {
@@ -32,8 +28,16 @@ body {
     margin-top: 5px;
 }
 
+.space-left-sm{
+    margin-left: 5px;
+}
+
 .space-left-med{
 	margin-left: 12px;
+}
+
+.space-bottom-med{
+	margin-bottom: 10px;
 }
 
 .no-margin {
@@ -83,16 +87,23 @@ body {
 	z-index: 99999;
 }
 
+/* Overiding Default Css */
+
 .mat-dialog-container{
-	padding-right: 10px !important;
-	padding-left: 0px !important;
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
+	padding: 5px !important;
 	overflow: hidden !important;
 }
 
 .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #2996f3;
+}
+
+.mat-sort-header-container{
+	 justify-content: center;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+    padding:0px !important;
 }
 
 #toast-container {
@@ -106,37 +117,18 @@ button:focus{
 	background-color: transparent !important;
 }
 
-/* Colors */
-.navy {
-    color: #001F3F;
+*, *:before, *:after{
+	box-sizing: content-box !important;
 }
+
+/* Colors */
 
 .blue {
     color: #0074D9;
 }
 
-.aqua {
-    color: #7FDBFF;
-}
-
-.teal {
-    color: #39CCCC;
-}
-
-.olive {
-    color: #3D9970;
-}
-
 .green {
     color: #2ECC40;
-}
-
-.lime {
-    color: #01FF70;
-}
-
-.yellow {
-    color: #FFDC00;
 }
 
 .orange {
@@ -147,24 +139,8 @@ button:focus{
     color: #FF4136;
 }
 
-.fuchsia {
-    color: #F012BE;
-}
-
-.purple {
-    color: #B10DC9;
-}
-
-.maroon {
-    color: #85144B;
-}
-
 .white {
     color: #FFFFFF;
-}
-
-.silver {
-    color: #DDDDDD;
 }
 
 .gray {

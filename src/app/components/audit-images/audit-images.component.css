@@ -3,6 +3,10 @@
     width: 5%;
 }
 
+.audit-table th{
+	font-size: 1.02em;
+}
+
 .text-align-center,
 .audit-table th {
     text-align: center;
@@ -19,10 +23,6 @@
     cursor: pointer;
 }
 
-.photo-direction-text {
-    opacity: 0;
-}
-
 .image-boxes{
 	position: relative;
 	text-align: center;
@@ -31,8 +31,10 @@
 
 .photo-direction-text{
 	position: absolute;
-	top:25%;
-	left:25%;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+    opacity: 0;
 }
 
 .image-boxes:hover .photo-direction-text {

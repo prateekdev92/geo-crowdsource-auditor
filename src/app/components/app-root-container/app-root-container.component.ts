@@ -13,14 +13,14 @@ export class AppRootContainerComponent implements OnInit {
   public pendingCount = 0;
 
   	logout():void {
-		this.router.navigate(["login"]);
-	}
+  		this.router.navigate(["login"]);
+  	}
 
-	showCount(data: any){
-		this.pendingCount = data;
-	}
+    showCount(data: any){
+    	this.pendingCount = data;
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

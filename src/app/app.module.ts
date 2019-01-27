@@ -1,3 +1,4 @@
+/* Angular Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }  from '@angular/forms';
@@ -8,7 +9,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 /* Third Party Libraries */
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToastrModule } from 'ngx-toastr';
-//import { MomentModule } from 'ngx-moment';
 import { MatTableModule, MatTooltipModule, MatGridListModule,
   MatSortModule, MatProgressSpinnerModule, MatDialogModule,
   MatFormFieldModule, MatInputModule, MatSelectModule,
@@ -45,7 +45,6 @@ import { ImageViewerComponent } from './common/image-viewer/image-viewer.compone
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),
-    //MomentModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
