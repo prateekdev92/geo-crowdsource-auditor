@@ -8,10 +8,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 /* Third Party Libraries */
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToastrModule } from 'ngx-toastr';
-import { MomentModule } from 'ngx-moment';
+//import { MomentModule } from 'ngx-moment';
 import { MatTableModule, MatTooltipModule, MatGridListModule,
   MatSortModule, MatProgressSpinnerModule, MatDialogModule,
-  MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+  MatFormFieldModule, MatInputModule, MatSelectModule,
+  MatToolbarModule, MatChipsModule} from '@angular/material';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 /* App modules */
@@ -22,13 +23,17 @@ import { AuditImagesComponent } from './components/audit-images/audit-images.com
 import { LoginComponent } from './components/login/login.component';
 import { UrlConfigService } from './common/urlConfig.service';
 import { AuditImagesActionComponent } from './components/audit-images/audit-images-action/audit-images-action.component';
+import { AppRootContainerComponent } from './components/app-root-container/app-root-container.component';
+import { ImageViewerComponent } from './common/image-viewer/image-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuditImagesComponent,
     LoginComponent,
-    AuditImagesActionComponent
+    AuditImagesActionComponent,
+    AppRootContainerComponent,
+    ImageViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { AuditImagesActionComponent } from './components/audit-images/audit-imag
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),
-    MomentModule,
+    //MomentModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
@@ -53,7 +58,9 @@ import { AuditImagesActionComponent } from './components/audit-images/audit-imag
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatChipsModule
   ],
   entryComponents: [AuditImagesActionComponent], 
   providers: [SpinnerService,

@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AuditImagesComponent } from '../audit-images.component';
 import { AuditImagesService } from '../audit-images.service';
 import { ToastrService } from 'ngx-toastr';
+import { SpinnerService } from '../../../common/spinner.service';
 
 export interface DialogData {
   photos: string;
@@ -18,7 +19,8 @@ export class AuditImagesActionComponent implements OnInit {
 
   constructor( public dialogRef: MatDialogRef<AuditImagesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private auditSrvc: AuditImagesService, private toaster: ToastrService) {}
+    private auditSrvc: AuditImagesService,
+    private toaster: ToastrService, private spinner: SpinnerService) {}
 
 		public feedback:any = {};
 		public action_items = [
@@ -46,10 +48,19 @@ export class AuditImagesActionComponent implements OnInit {
 		}
 
 		submitFeedback(){
+
+			if(!this.feedback.comment || !this.feedback.evaluation){
+				this.toaster.error("Please fill the required fields");
+				return false;
+			}
+
+			this.spinner.showLoading();
 			
 			this.auditSrvc.submitFeedback(this.feedback).subscribe((data:any = {}) => {
 	     	
 	     		this.toaster.success("Successfully Submitted");
+
+	     		this.spinner.hideLoading();
 
 	     		this.closeDialog(true);
       	    
@@ -59,6 +70,8 @@ export class AuditImagesActionComponent implements OnInit {
 		closeDialog(flag){
 			if(flag){
 			 this.dialogRef.close(this.data);
+			} else {
+				this.dialogRef.close(false);
 			}
 		}
 

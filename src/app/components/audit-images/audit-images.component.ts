@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { AuditImagesService } from './audit-images.service';
 import { MatTableDataSource, MatTableModule, MatSort} from '@angular/material';
 import { SpinnerService } from '..//..//common/spinner.service';
@@ -14,11 +14,15 @@ import {AuditImagesActionComponent} from './audit-images-action/audit-images-act
 
 export class AuditImagesComponent implements OnInit {
 
+@Output() getPendingCount = new EventEmitter();
+
   constructor(private auditSrvc: AuditImagesService, private spinner: SpinnerService, 
   	public dialog: MatDialog) { }
 
   	public listing;
   	public clicked = false;
+
+  	
 
   	displayedColumns: string[] = ['id', 'location'  ,'timestamp', 'landobservations', 'photos', 'action'];
 
@@ -34,7 +38,9 @@ export class AuditImagesComponent implements OnInit {
 
 	      this.listing.sort = this.sort;
 
-	      this.spinner.hideLoading()
+	      this.sendCount();
+
+	      this.spinner.hideLoading();
       	    
 	    });  
 
@@ -55,11 +61,16 @@ export class AuditImagesComponent implements OnInit {
 	    		if(idx!=-1){
 	    			this.listing.data.splice(idx, 1);
 	    			this.listing = new MatTableDataSource(this.listing.data);
+	    			this.sendCount();
 	    		}
 	    		
 	    	}
 	    });
 
+  	}
+
+  	sendCount() {
+  		this.getPendingCount.emit(this.listing.data.length);
   	}
 
 	ngOnInit() {

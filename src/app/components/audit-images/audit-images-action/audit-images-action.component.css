@@ -17,3 +17,15 @@ i{
 	bottom:5%;
 	left:40%;
 }
+
+.green-border{
+	border:1px solid mediumseagreen;
+	background-color: mediumseagreen;
+	color:#fff !important;
+}
+
+.red-border{
+	border:1px solid tomato;
+	background-color: tomato;
+	color:#fff !important;
+}
