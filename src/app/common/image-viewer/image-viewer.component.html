@@ -1,0 +1,13 @@
+<div class="image-viewer-dialog" style="background-color: #fff;border:1px solid #ccc;">
+	<div fxLayout="row">
+		<div fxFlex="5"></div>
+		<div fxFlex>
+			<h6 class="theme-blue"> Instant Image Viewer</h6>
+		</div>
+		<div fxFlex></div>
+		<div fxFlex="5">
+			<i (click)="closeViewer()" class="material-icons cursor">close</i>
+		</div>
+	</div>
+	<img src="{{url}}" width="100%" height="90%" />
+</div>

@@ -1,0 +1,152 @@
+body {
+    margin: 0px;
+    height: 100%;
+    font-family: 'Open Sans'
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout */
+
+.space-top-super {
+    margin-top: 10%;
+}
+
+.space-top-lg {
+    margin-top: 20px;
+}
+
+.space-top-med {
+    margin-top: 10px;
+}
+
+.space-top-sm {
+    margin-top: 5px;
+}
+
+.space-left-sm{
+    margin-left: 5px;
+}
+
+.space-left-med{
+	margin-left: 12px;
+}
+
+.space-bottom-med{
+	margin-bottom: 10px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+/* Font Weights */
+
+.font-weight-100 {
+    font-weight: 100;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+/* Custom Tooltip style */
+
+.mat-tooltip {
+    font-size: 1.02em !important;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Button */
+
+.cust-button{
+	background-color: #fff;
+	color:#2996f3;
+	border:1px solid #2996f3;
+	width:60%;
+}
+
+.theme-blue{
+	color: #2996f3;
+}
+
+.cursor{
+	cursor: pointer;
+}
+
+.highlight-above{
+	z-index: 99999;
+}
+
+/* Overiding Default Css */
+
+.mat-dialog-container{
+	padding: 5px !important;
+	overflow: hidden !important;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #2996f3;
+}
+
+.mat-sort-header-container{
+	 justify-content: center;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+    padding:0px !important;
+}
+
+#toast-container {
+  top: auto !important;
+  left: auto !important;
+  bottom: 20% !important;
+  right: 0% !important;  
+}
+
+button:focus{
+	background-color: transparent !important;
+}
+
+*, *:before, *:after{
+	box-sizing: content-box !important;
+}
+
+/* Colors */
+
+.blue {
+    color: #0074D9;
+}
+
+.green {
+    color: #2ECC40;
+}
+
+.orange {
+    color: #FF851B;
+}
+
+.red {
+    color: #FF4136;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.gray {
+    color: #AAAAAA;
+}
+
+.black {
+    color: #111111;
+}

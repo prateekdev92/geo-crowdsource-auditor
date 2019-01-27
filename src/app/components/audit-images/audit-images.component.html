@@ -1,0 +1,88 @@
+<div fxLayout="row" faLayoutAlign="center center" class="space-top-lg audit-table">
+    <div fxFlex></div>
+    <div fxFlex=85  fxFlex.lt-md="100">
+        <table mat-table [dataSource]="listing" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> User Info</th>
+                <td mat-cell *matCellDef="let element">
+                    <h6>
+		            <div (click)="sendCount()" class="space-top-med">
+		          		<label>App: </label>
+		          		<span matTooltip="App">{{element.platform.app}}</span> /
+		          		<span matTooltip="App Version">{{element.platform.appversion}}</span>
+		          	</div>
+		          	<div class="space-top-sm">
+		          		<label>Device: </label>
+		          		<span matTooltip="Device">{{element.platform.device}}</span> /
+		          		<span matTooltip="OS Version">{{element.platform.osversion}}</span>
+		          	</div>
+          		</h6>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="location">
+                <th fxHide.sm fxHide.xs mat-header-cell *matHeaderCellDef> Location</th>
+                <td fxHide.sm fxHide.xs mat-cell *matCellDef="let element" class="text-align-center">
+                    <a href="https://www.google.com/maps/@{{element.location.lat}},{{element.location.lon}},609a,35y,39.19t/data=!3m1!1e3" target="_blank">
+	          	<div>
+	          	<label>Lat: </label>
+	          	<span class="black-text" matTooltip="Latitude">{{element.location.lat}}</span></div>
+	          	<div>
+	          	<label>Long: </label>
+	          	<span class="black-text" matTooltip="Longitude">{{element.location.lon}}</span>
+	      		</div>
+      		</a>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="timestamp">
+                <th fxHide.sm fxHide.xs mat-sort-header mat-header-cell *matHeaderCellDef> Submitted Time </th>
+                <td fxHide.sm fxHide.xs mat-cell *matCellDef="let element" class="text-align-center"> {{element.timestamp | date: 'mediumDate'}}<br />{{element.timestamp | date: 'shortTime'}}</td>
+            </ng-container>
+            <ng-container matColumnDef="landobservations">
+                <th mat-header-cell *matHeaderCellDef> Observations </th>
+                <td mat-cell *matCellDef="let element" class="text-align-center">
+                    <div matTooltip="Land Cover" class="camel-case">
+                        <label>Cover: </label>
+                        {{element.landobservations[0].landcover}}
+                    </div>
+                    <div matTooltip="Land use" class="camel-case">
+                        <label>Use: </label>
+                        {{element.landobservations[0].landuse}}
+                    </div>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="photos">
+                <th fxHide.sm fxHide.xs mat-header-cell *matHeaderCellDef style="width:9%;">Insta Photo Preview</th>
+                <td mat-cell fxHide.sm fxHide.xs *matCellDef="let element" class="text-align-center" style="width:9%;">
+                    <mat-grid-list class="space-top-med" cols="3" rowHeight="50px">
+                        <mat-grid-tile *ngFor="let photo of element.photos; let i = index">
+                            <div *ngIf="i<=4" (click)="clicked=true;loadImageViewer=true;showImage=photo.url;" class="image-boxes" align="center" >
+                                <img [lazyLoad]="photo.url" [offset]="100" height="42px" width="auto" class="image" >
+                                <div class="camel-case photo-direction-text">
+                                    {{photo.direction}}
+                                </div>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element" class="text-align-center">
+                    <div layout=row>
+                        <button class="cust-button" (click)="openDialog(element)" style="width:60%;">
+                            Review
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+        <div style="color:#000;text-align: center;" *ngIf="listing && listing.data && listing.data.length == 0">
+            <h6 class="gray font-weight-100">You're all done for today!</h6>
+        </div>
+    </div>
+    <div fxFlex></div>
+</div>
+<app-image-viewer *ngIf="loadImageViewer" (closeEmmit)="loadImageViewer=false;" [url]="showImage"></app-image-viewer>

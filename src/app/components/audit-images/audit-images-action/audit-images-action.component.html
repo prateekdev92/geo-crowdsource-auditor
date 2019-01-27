@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" >
+    <div fxFlex="60">
+    	<div style="position: relative;">
+        <div>
+            <img src="{{data.photos[imageIndex].url}}" height="100%" width="100%" />
+            <span matTooltip="Compare the Photos with Satellite Imagery" style="position: absolute;bottom: 1%;right:1%;">
+				<a href="https://www.google.com/maps/@{{data.location.lat}},{{data.location.lon}},130a,35y,3.25h,70.9t/data=!3m1!1e3" target="_blank">
+				<i class="material-icons cursor font-size white-text">map</i></a>
+			</span>
+		</div>
+        <div align="center" class="space-top-med arrow-box">
+            <span (click)="prevImage()" matTooltip="Previous">
+				<i class="cursor font-size white-text material-icons">arrow_back_ios</i>
+			</span>
+            <span  (click)="nextImage()" matTooltip="Next">
+				<i class="cursor font-size white-text material-icons">arrow_forward_ios</i>
+			</span>
+			<div class="white-text space-left-med" align="left">
+				{{imageIndex+1}} of {{images.length}}
+			</div>
+
+    	</div>
+        </div>
+
+    </div>
+        <div fxFlex="40" fxLayout="column" class="space-bottom-med">
+        	<div align="right" class="space-top-sm" >
+        		<i (click)="closeDialog(false)" class="material-icons cursor">close</i>
+        	</div>
+            <div fxFlex align="center" class="space-top-sm">
+                <mat-form-field class="width-80">
+                    <textarea matInput [(ngModel)]="feedback.comment" rows="7" cols="70" placeholder="Write your comment here"></textarea>
+                </mat-form-field>
+            </div>
+            <div fxFlex align="center">
+                <mat-form-field class="width-80">
+                    <mat-select [(ngModel)]="feedback.evaluation"placeholder="Evaluation">
+                        <mat-option *ngFor="let item of action_items" value="{{item.id}}">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex align="center">
+                <button class="cust-button" [ngClass]="{'green-border': feedback.evaluation == 1, 'red-border': (feedback.evaluation && feedback.evaluation > 1) }"  (click)="submitFeedback()" > Submit</button>
+            </div>
+        </div>
+    </div>

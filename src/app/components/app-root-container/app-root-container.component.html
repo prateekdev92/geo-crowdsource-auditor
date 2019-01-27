@@ -1,0 +1,27 @@
+<mat-toolbar style="font-size: 1.5em;border-bottom:1px solid #ccc;margin-bottom: 0px;">
+	<div fxLayout="row" fxFlex="100" faLayoutAlign="center center" >
+		<div fxFlex="5"></div>
+		<div fxFlex="20" class="space-left-sm">
+			<img src="/assets/images/icon.png" matTooltip="FotoQuest Official Logo" height="42px" width="42px"/>
+		</div>
+		<div fxFlex="50" fxHide.sm fxHide.xs align="center" class="centered">
+			<p class="gray space-top-sm" style="margin-bottom: 0px;">
+	        	<span class="blue-text font-weight-100 font-text-big" >FotoQuest Go </span> 
+	        	<span class="font-weight-100 font-text-big">Admin</span>
+    		</p>
+		</div>
+		<div flex="0" fxFlex.lt-md="0"></div>
+		<div fxFlex="20" fxFlex.lt-md="40" class="centered">
+			<mat-chip-list>
+				<mat-chip>
+					<span fxHide.sm fxHide.xs>Total Pending: {{pendingCount.total}}&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+					<span [ngClass]="{'green-text': pendingCount.current == 0, 'orange-text': pendingCount.current > 0}" >Review Pending: {{pendingCount.current}}</span>
+				</mat-chip>
+			</mat-chip-list>
+		</div>
+		<div fxFlex="5" fxFlex.lt-md="15" class="centered">
+			<i (click)="logout()" matTooltip="Logout" class="material-icons cursor gray">exit_to_app</i>
+		</div>
+	</div>
+</mat-toolbar>
+<app-audit-images (getPendingCount)="showCount($event)"></app-audit-images>
