@@ -55,7 +55,7 @@
                 <td mat-cell *matCellDef="let element" class="text-align-center" style="width:9%;">
                     <mat-grid-list class="space-top-med" cols="3" rowHeight="50px">
                         <mat-grid-tile *ngFor="let photo of element.photos; let i = index">
-                            <div *ngIf="i<=4" (click)="clicked=true;" class="image-boxes" align="center" >
+                            <div *ngIf="i<=4" (click)="clicked=true;loadImageViewer=true;showImage=photo.url;" class="image-boxes" align="center" >
                                 <img [lazyLoad]="photo.url" [offset]="100" height="42px" width="auto" class="image" >
                                 <div class="camel-case photo-direction-text">
                                     {{photo.direction}}
@@ -85,3 +85,4 @@
     </div>
     <div fxFlex></div>
 </div>
+<app-image-viewer *ngIf="loadImageViewer" (closeEmmit)="loadImageViewer=false;" [url]="showImage"></app-image-viewer>

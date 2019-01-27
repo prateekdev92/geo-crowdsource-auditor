@@ -8,14 +8,15 @@ import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 
 export class ImageViewerComponent implements OnInit {
 
-	@Input() url: string;
-	@Output() onClick = new EventEmitter<any>();
+	@Input() url: any;
+	@Output() closeEmmit = new EventEmitter<any>();
 
 	constructor() { }
 
-	onClickButton(event) {
-	    this.onClick.emit(event);
+	closeViewer(event) {
+	    this.closeEmmit.emit(event);
 	}
+
 
 	ngOnInit() {
 	}

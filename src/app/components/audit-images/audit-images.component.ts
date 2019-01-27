@@ -21,7 +21,8 @@ export class AuditImagesComponent implements OnInit {
 
   	public listing;
   	public clicked = false;
-
+  	public loadImageViewer = false;
+  	public showImage = false;
   	
 
   	displayedColumns: string[] = ['id', 'location'  ,'timestamp', 'landobservations', 'photos', 'action'];
