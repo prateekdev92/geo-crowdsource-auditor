@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+  	apiKey: "AIzaSyCgrnNG9r0rgYIQan4fzpTMikoZqZHVRM0",
+    authDomain: "geo-crowdsource.firebaseapp.com",
+    databaseURL: "https://geo-crowdsource.firebaseio.com",
+    projectId: "geo-crowdsource",
+    storageBucket: "geo-crowdsource.appspot.com",
+    messagingSenderId: "710302808778"
+  }
 };
 
 /*

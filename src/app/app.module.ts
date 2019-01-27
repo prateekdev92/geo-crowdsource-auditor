@@ -5,6 +5,8 @@ import { FormsModule }  from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';  
 
 /* Third Party Libraries */
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -59,7 +61,8 @@ import { ImageViewerComponent } from './common/image-viewer/image-viewer.compone
     MatInputModule,
     MatSelectModule,
     MatToolbarModule,
-    MatChipsModule
+    MatChipsModule,
+    AngularFireModule.initializeApp(environment.firebase)  
   ],
   entryComponents: [AuditImagesActionComponent], 
   providers: [SpinnerService,
