@@ -2,8 +2,8 @@
 
 ## The Project has below features:
 - App is build using Angular 7 (TypeScript)
-- User Experience has been crafted carefully to keep UI intuitive and clean
-- Tooltips are available on every value, defining the significance
+- User Experience is crafted carefully to keep UI intuitive and clean
+- Tooltips are available on every value, defining it's significance
 - Images are loaded using Lazy Loading
 - User can see instant previews by clicking the thumbnails, it is a reusable component
 - The review button provides a screen which allows user to focus only on submission and take respective action
