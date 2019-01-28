@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   firebase: {
-  	apiKey: "AIzaSyCgrnNG9r0rgYIQan4fzpTMikoZqZHVRM0",
     authDomain: "geo-crowdsource.firebaseapp.com",
     databaseURL: "https://geo-crowdsource.firebaseio.com",
     projectId: "geo-crowdsource",
